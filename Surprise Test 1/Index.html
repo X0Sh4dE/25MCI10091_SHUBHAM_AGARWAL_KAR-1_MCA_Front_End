@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Smart To-Do Manager</title>
+
+<!-- Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Bootstrap Icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+</head>
+
+<body class="bg-light">
+
+<div class="container mt-5">
+
+  <h2 class="text-center mb-4">Lets Do it</h2>
+  <h4>A Smart To-Do List Manager</h4>
+
+  <!-- ADD TASK -->
+  <div class="card p-3 mb-3">
+    <div class="row g-2">
+      <div class="col-md-4">
+        <Label>Enter Task</Label>
+        <input type="text" id="task-input" class="form-control" placeholder="Enter task">
+      </div>
+
+      <div class="col-md-3">
+        <label>Set Priority</label>
+        <select id="priority" class="form-select">
+          <option value="low">Low</option>
+          <option value="medium" selected>Medium</option>
+          <option value="high">High</option>
+        </select>
+      </div>
+
+      <div class="col-md-3">
+        <label>Set Date</label>
+        <input type="date" id="deadline" class="form-control">
+      </div>
+
+      <div class="col-md-2">
+        <button class="btn btn-primary w-100" onclick="addTask()">Add</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- FILTER -->
+  <div class="mb-3 d-flex gap-2">
+    <button class="btn btn-outline-primary btn-sm" onclick="setFilter('all')">All</button>
+    <button class="btn btn-outline-success btn-sm" onclick="setFilter('completed')">Completed</button>
+    <button class="btn btn-outline-warning btn-sm" onclick="setFilter('pending')">Pending</button>
+  </div>
+  <div class="mb-3 d-flex gap-2">
+    <button class="btn btn-outline-danger btn-sm" onclick="setSort('priority')">
+      <i class="bi bi-fire"></i> Priority
+    </button>
+    <button class="btn btn-outline-secondary btn-sm" onclick="setSort('deadline')">
+      <i class="bi bi-calendar"></i> Deadline
+    </button>
+  </div>
+  <div class="mb-3">
+    <div class="container text-center">
+  <div class="row">
+    <div class="col">
+      <span class="badge bg-primary">Total: <span id="total">0</span></span>
+    </div>
+    <div class="col">
+      <span class="badge bg-success">Completed: <span id="completed">0</span></span>
+    </div>
+    <div class="col">
+         <span class="badge bg-warning text-dark">Pending: <span id="pending">0</span></span>
+    </div>
+  </div>
+</div>
+    
+  </div>
+
+  <!-- TASK LIST -->
+  <div id="task-list"></div>
+
+</div>
+
+<script>
+let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+let filter = "all";
+let sortType = null;
+
+// PRIORITY WEIGHT
+const priorityWeight = { high: 3, medium: 2, low: 1 };
+
+// ADD TASK
+function addTask() {
+  let title = document.getElementById("task-input").value.trim();
+  let priority = document.getElementById("priority").value;
+  let deadline = document.getElementById("deadline").value;
+
+  if (!title) return alert("Enter task!");
+
+  tasks.unshift({
+    id: Date.now(),
+    title,
+    priority,
+    deadline,
+    completed: false
+  });
+
+  save();
+  render();
+
+  document.getElementById("task-input").value = "";
+}
+
+// TOGGLE
+function toggle(id) {
+  tasks = tasks.map(t => t.id === id ? {...t, completed: !t.completed} : t);
+  save();
+  render();
+}
+
+// DELETE
+function deleteTask(id) {
+  tasks = tasks.filter(t => t.id !== id);
+  save();
+  render();
+}
+
+// FILTER (WITH DEBOUNCE)
+function setFilter(f) {
+  filter = f;
+  debouncedRender();
+}
+
+// SORT
+function setSort(type) {
+  sortType = type;
+  debouncedRender();
+}
+
+// DEBOUNCE
+function debounce(func, delay) {
+  let timer;
+  return function() {
+    clearTimeout(timer);
+    timer = setTimeout(func, delay);
+  }
+}
+const debouncedRender = debounce(render, 500);
+
+// SAVE
+function save() {
+  localStorage.setItem("tasks", JSON.stringify(tasks));
+}
+
+// RENDER
+function render() {
+  let list = document.getElementById("task-list");
+  list.innerHTML = "";
+
+  let today = new Date().toISOString().split("T")[0];
+
+  let filtered = tasks.filter(t => {
+    if (filter === "completed") return t.completed;
+    if (filter === "pending") return !t.completed;
+    return true;
+  });
+
+  // SORT
+  if (sortType === "priority") {
+    filtered.sort((a,b)=> priorityWeight[b.priority] - priorityWeight[a.priority]);
+  }
+  if (sortType === "deadline") {
+    filtered.sort((a,b)=>{
+      if(!a.deadline) return 1;
+      if(!b.deadline) return -1;
+      return a.deadline.localeCompare(b.deadline);
+    });
+  }
+
+  // COUNTER
+  document.getElementById("total").innerText = tasks.length;
+  document.getElementById("completed").innerText = tasks.filter(t=>t.completed).length;
+  document.getElementById("pending").innerText = tasks.filter(t=>!t.completed).length;
+
+  // BUILD UI
+  filtered.forEach(task => {
+
+    let badgeClass =
+      task.priority === "high" ? "bg-danger" :
+      task.priority === "medium" ? "bg-warning text-dark" :
+      "bg-success";
+
+    let overdue = task.deadline && task.deadline < today && !task.completed;
+
+    let div = document.createElement("div");
+    div.className = "card mb-2 p-2 " + (overdue ? "border border-danger" : "");
+
+    div.innerHTML = `
+      <div class="d-flex justify-content-between align-items-center">
+
+        <div onclick="toggle(${task.id})" style="cursor:pointer">
+          <h6 class="${task.completed ? 'text-decoration-line-through text-muted' : ''}">
+            ${task.title}
+          </h6>
+
+          <span class="badge ${badgeClass}">${task.priority}</span>
+
+          ${task.deadline ? `<small class="ms-2 text-muted">
+            <i class="bi bi-calendar"></i> ${task.deadline}
+          </small>` : ""}
+        </div>
+
+        <button class="btn btn-sm btn-danger" onclick="deleteTask(${task.id})">
+          <i class="bi bi-trash"></i>
+        </button>
+
+      </div>
+    `;
+
+    list.appendChild(div);
+  });
+}
+render();
+</script>
+
+</body>
+</html>

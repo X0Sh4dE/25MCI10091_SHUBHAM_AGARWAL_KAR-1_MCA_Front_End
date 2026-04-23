@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <!-- Apna naam yahan daalo - browser tab mein dikhega -->
+  <title>Shubham Agarwal - Portfolio</title>
+
+  <!-- Google Font - Poppins (internet se load hoti hai) -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+
+  <!-- Font Awesome - icons ke liye (LinkedIn, GitHub etc.) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <!-- Apni CSS file yahan link karo (style.css same folder mein honi chahiye) -->
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <!-- ========== NAVIGATION BAR ========== -->
+  <!-- Yeh top pe sticky navbar hai jisme links hain -->
+  <nav>
+    <!-- Logo - apne initials daalo ya naam -->
+    <div class="logo">SA</div>
+
+    <!-- Nav links - yeh page ke sections pe scroll karte hain -->
+    <ul>
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#edu-skills">Education</a></li>
+      <li><a href="#techstack">Tech Stack</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+
+  <!-- ========== HERO SECTION ========== -->
+  <!-- Pehli screen - naam, tagline aur photo -->
+  <section id="hero">
+
+    <!-- LEFT SIDE - naam aur tagline -->
+    <div class="hero-text">
+      <!-- Apna naam yahan daalo -->
+      <h1>Hello there,<br>I'm Shubham Agarwal</h1>
+
+      <!-- Apni skills / roles yahan daalo, | separator hai beech mein -->
+      <p class="tagline">
+        Frontend Designer <span>|</span> React Developer <span>|</span> UI/UX Designer
+      </p>
+
+      <!-- Buttons -->
+      <div class="hero-buttons">
+        <!-- CV download ke liye href mein apni CV ka path daalo, jaise: href="cv.pdf" -->
+        <a href="Shubham_Resume.pdf" class="btn btn-primary">Download CV</a>
+        <!-- About section pe le jaata hai -->
+        <a href="#about" class="btn btn-outline">Learn More</a>
+      </div>
+    </div>
+
+    <!-- RIGHT SIDE - apni photo -->
+    <div class="hero-photo">
+      <!-- src mein apni photo ka naam daalo jaise: src="photo.jpg" -->
+      <!-- Photo same folder mein honi chahiye jahan index.html hai -->
+      <img src="photo.jpeg" alt="Shubham Agarwal" />
+    </div>
+
+  </section>
+
+
+  <!-- ========== ABOUT ME SECTION ========== -->
+  <!-- Apne baare mein thoda batao -->
+  <section id="about">
+    <h2>About Me</h2>
+
+    <!-- Yahan apna career objective / introduction likho -->
+    <p>
+      I'm a front-end developer in the making, with a strong interest in UI/UX design.
+      My goal is to design and build modern, interactive websites that are as beautiful
+      as they are easy to use. I enjoy turning ideas into real products using clean code
+      and thoughtful design. Currently pursuing my Bachelor of Computer Application and
+      looking for opportunities to grow and contribute.
+    </p>
+  </section>
+
+
+  <!-- ========== EDUCATION + SKILLS (2 Column Layout) ========== -->
+  <!-- Yeh 2 columns mein divide hai - left mein education, right mein skills -->
+  <section id="edu-skills">
+    <div class="two-col">
+
+      <!-- ---- LEFT COLUMN: EDUCATION ---- -->
+      <div class="col-box">
+        <h2>Educational Qualifications</h2>
+
+        <!-- Ek education entry - isko copy karke aur entries bana sakte ho -->
+        <div class="edu-item">
+          <!-- Degree / Course ka naam -->
+          <h4>Bachelor of Computer Application</h4>
+          <!-- College / School ka naam -->
+          <p>Graphic Era University</p>
+          <!-- Saal -->
+          <p>2022 – Present</p>
+        </div>
+
+        <div class="edu-item">
+          <h4>CBSE – XII (Science)</h4>
+          <!-- Apne school ka naam daalo -->
+          <p>Your School Name, City</p>
+          <p>Passed: 2022</p>
+        </div>
+
+        <div class="edu-item">
+          <h4>CBSE – X</h4>
+          <!-- Apne school ka naam daalo -->
+          <p>Your School Name, City</p>
+          <p>Passed: 2020</p>
+        </div>
+
+      </div>
+      <!-- End Left Column -->
+
+
+      <!-- ---- RIGHT COLUMN: SKILLS ---- -->
+      <div class="col-box">
+        <h2>My Skills</h2>
+
+        <!-- Ek skill entry - skill-fill ki width = percentage of skill -->
+        <!-- Jitna better skill, utna zyada % daalo (max 100%) -->
+
+        <div class="skill-item">
+          <div class="skill-name">
+            <span>UI / UX Design</span>
+            <span>85%</span>
+          </div>
+          <div class="skill-bar">
+            <!-- width mein apni skill ka percentage daalo -->
+            <div class="skill-fill" style="width: 85%"></div>
+          </div>
+        </div>
+
+        <div class="skill-item">
+          <div class="skill-name">
+            <span>Web Development</span>
+            <span>80%</span>
+          </div>
+          <div class="skill-bar">
+            <div class="skill-fill" style="width: 80%"></div>
+          </div>
+        </div>
+
+        <div class="skill-item">
+          <div class="skill-name">
+            <span>React.js</span>
+            <span>70%</span>
+          </div>
+          <div class="skill-bar">
+            <div class="skill-fill" style="width: 70%"></div>
+          </div>
+        </div>
+
+        <div class="skill-item">
+          <div class="skill-name">
+            <span>Game Development (Unity)</span>
+            <span>60%</span>
+          </div>
+          <div class="skill-bar">
+            <div class="skill-fill" style="width: 60%"></div>
+          </div>
+        </div>
+
+        <div class="skill-item">
+          <div class="skill-name">
+            <span>Scripting / JavaScript</span>
+            <span>75%</span>
+          </div>
+          <div class="skill-bar">
+            <div class="skill-fill" style="width: 75%"></div>
+          </div>
+        </div>
+
+        <!-- Naya skill add karna ho toh upar wala block copy karo aur naam + % badlo -->
+
+      </div>
+      <!-- End Right Column -->
+
+    </div>
+  </section>
+
+
+  <!-- ========== TECH STACK SECTION ========== -->
+  <!-- Jo technologies tum jaante ho woh yahan dikhao -->
+  <section id="techstack">
+    <h2 class="center-heading">Technology Stack</h2>
+    <p class="center-sub">Technologies I work with for front-end, back-end, design and game development.</p>
+
+    <div class="tech-grid">
+
+      <!-- Ek tech card - icon aur naam -->
+      <!-- Font Awesome ke icons use ho rahe hain, site: fontawesome.com/icons -->
+
+      <div class="tech-card">
+        <i class="fa-brands fa-html5"></i>
+        <p>HTML5</p>
+      </div>
+
+      <div class="tech-card">
+        <i class="fa-brands fa-css3-alt"></i>
+        <p>CSS3</p>
+      </div>
+
+      <div class="tech-card">
+        <i class="fa-brands fa-js"></i>
+        <p>JavaScript</p>
+      </div>
+
+      <div class="tech-card">
+        <i class="fa-brands fa-react"></i>
+        <p>React</p>
+      </div>
+
+      <div class="tech-card">
+        <i class="fa-brands fa-node-js"></i>
+        <p>Node.js</p>
+      </div>
+
+      <div class="tech-card">
+        <!-- MongoDB ka koi brand icon nahi hai Font Awesome mein, isliye database icon use kiya -->
+        <i class="fa-solid fa-database"></i>
+        <p>MongoDB</p>
+      </div>
+
+      <div class="tech-card">
+        <i class="fa-brands fa-figma"></i>
+        <p>Figma</p>
+      </div>
+
+      <div class="tech-card">
+        <i class="fa-brands fa-adobe"></i>
+        <p>Adobe XD</p>
+      </div>
+
+      <div class="tech-card">
+        <!-- Unity ka bhi brand icon font awesome mein nahi hai, gamepad use kiya -->
+        <i class="fa-solid fa-gamepad"></i>
+        <p>Unity</p>
+      </div>
+
+      <div class="tech-card">
+        <i class="fa-brands fa-git-alt"></i>
+        <p>Git</p>
+      </div>
+
+      <!-- Naya tech add karna ho toh upar wala div copy karo aur icon + naam badlo -->
+
+    </div>
+  </section>
+
+
+  <!-- ========== PROJECTS SECTION ========== -->
+  <!-- Apne projects yahan list karo -->
+  <section id="projects">
+    <h2>My Projects</h2>
+    <p class="section-sub">Here are some of my projects I have built. Take a look at the details.</p>
+
+    <div class="project-grid">
+
+      <!-- ---- PROJECT CARD 1 ---- -->
+      <!-- Ek project card - copy karke aur projects bana sakte ho -->
+      <div class="project-card">
+
+        <!-- Project screenshot - src mein apni project image ka path daalo -->
+        <!-- Jaise: src="projects/ecommerce.png" -->
+        <img src="projects/project1.png" alt="Project Screenshot" class="project-img" />
+
+        <!-- Agar image nahi hai toh upar wali img line hata do aur yeh rakho: -->
+        <!-- <div class="project-img-placeholder">[ Screenshot ]</div> -->
+
+        <div class="project-info">
+          <!-- Project ka naam -->
+          <h4>E-Commerce Resale Website</h4>
+
+          <!-- Project ki short description -->
+          <p>A fully responsive front-end for an e-commerce website built with HTML, CSS and JavaScript.</p>
+
+          <!-- Technologies jo use ki project mein -->
+          <div class="tags">
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">JavaScript</span>
+          </div>
+
+          <!-- Project ka live link ya GitHub link daalo -->
+          <a href="https://github.com/yourusername/project1" target="_blank">View Project →</a>
+        </div>
+      </div>
+
+      <!-- ---- PROJECT CARD 2 ---- -->
+      <div class="project-card">
+        <img src="projects/project2.png" alt="Project Screenshot" class="project-img" />
+        <div class="project-info">
+          <h4>Portfolio Website</h4>
+          <p>Personal portfolio to showcase my skills, projects and experience as a developer and designer.</p>
+          <div class="tags">
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+          </div>
+          <a href="https://github.com/yourusername/project2" target="_blank">View Project →</a>
+        </div>
+      </div>
+
+      <!-- ---- PROJECT CARD 3 ---- -->
+      <div class="project-card">
+        <img src="projects/project3.png" alt="Project Screenshot" class="project-img" />
+        <div class="project-info">
+          <h4>React Dashboard UI</h4>
+          <p>A clean admin dashboard interface built with React and Tailwind CSS for a SaaS application.</p>
+          <div class="tags">
+            <span class="tag">React</span>
+            <span class="tag">Tailwind</span>
+          </div>
+          <a href="https://github.com/yourusername/project3" target="_blank">View Project →</a>
+        </div>
+      </div>
+
+      <!-- ---- PROJECT CARD 4 ---- -->
+      <div class="project-card">
+        <img src="projects/project4.png" alt="Project Screenshot" class="project-img" />
+        <div class="project-info">
+          <h4>2D Unity Game</h4>
+          <p>A 2D platformer game built in Unity with C# scripting, animations and basic level design.</p>
+          <div class="tags">
+            <span class="tag">Unity</span>
+            <span class="tag">C#</span>
+          </div>
+          <a href="https://github.com/yourusername/project4" target="_blank">View Project →</a>
+        </div>
+      </div>
+
+      <!-- Naya project add karna ho toh upar wala project card copy karo -->
+
+    </div>
+  </section>
+
+
+  <!-- ========== FOOTER / CONTACT SECTION ========== -->
+  <!-- Contact info aur social media links -->
+  <footer id="contact">
+
+    <!-- LEFT SIDE - Contact Info -->
+    <div class="footer-left">
+      <!-- Apna naam -->
+      <p class="footer-name">Shubham Agarwal</p>
+      <p>Frontend Developer | UI/UX Designer</p>
+
+      <!-- Apni email daalo -->
+      <p class="footer-contact">
+        <i class="fa-solid fa-envelope"></i>
+        <a href="mailto:shubham260804@gmail.com">shubham260804@gmail.com</a>
+      </p>
+
+      <!-- Apna phone number daalo -->
+      <p class="footer-contact">
+        <i class="fa-solid fa-phone"></i>
+        +91 8077665241
+      </p>
+
+      <!-- Apna address daalo -->
+      <p class="footer-contact">
+        <i class="fa-solid fa-location-dot"></i>
+        Haridwar, Uttarakhand, India
+      </p>
+    </div>
+
+    <!-- RIGHT SIDE - Social Media Links -->
+    <div class="footer-right-wrapper">
+      <p class="follow-text">Follow me on</p>
+      <div class="footer-social">
+
+        <!-- LinkedIn - href mein apna LinkedIn profile URL daalo -->
+        <a href="https://linkedin.com/in/shubham-agarwal" target="_blank" title="LinkedIn">
+          <i class="fa-brands fa-linkedin"></i>
+        </a>
+
+        <!-- Instagram - href mein apna Instagram profile URL daalo -->
+        <a href="https://instagram.com/_th3shu6ham_" target="_blank" title="Instagram">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+
+        <!-- GitHub - href mein apna GitHub profile URL daalo -->
+        <a href="https://github.com/X0Sh4dE" target="_blank" title="GitHub">
+          <i class="fa-brands fa-github"></i>
+        </a>
+        <!-- Email icon bhi daal diya for direct email -->
+        <a href="mailto:shubham260804@gmail.com" title="Send Email">
+          <i class="fa-solid fa-envelope"></i>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- Copyright line - sab ka neeche -->
+    <div class="footer-copy">
+      <!-- Saal aur apna naam yahan update karo -->
+      © 2024 Shubham Agarwal. All rights reserved.
+    </div>
+
+  </footer>
+
+
+  <!-- ========== JAVASCRIPT FILE LINK ========== -->
+  <!-- Script hamesha body ke end mein daalo, taaki pehle HTML load ho -->
+  <!-- script.js same folder mein honi chahiye -->
+  <script src="script.js"></script>
+
+</body>
+</html>

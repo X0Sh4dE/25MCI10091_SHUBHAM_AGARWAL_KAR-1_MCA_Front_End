@@ -1,0 +1,551 @@
+/* ============================================================
+   style.css - Shubham Agarwal Portfolio
+   
+   FILE STRUCTURE:
+   1. Reset & Base Styles
+   2. Navigation
+   3. Hero Section
+   4. About Section
+   5. Education + Skills Section
+   6. Tech Stack Section
+   7. Projects Section
+   8. Footer
+   9. Responsive (Mobile View)
+   ============================================================ */
+
+
+/* ============================================================
+   1. RESET & BASE STYLES
+   Sabse pehle basic settings - margin, padding, font etc.
+   ============================================================ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* padding andar count hogi, bahar nahi */
+}
+
+body {
+  font-family: 'Poppins', sans-serif; /* Google Font - head mein link karni hoti hai */
+  background-color: #f5f5f5;          /* Light gray background */
+  color: #333;                         /* Default text color */
+}
+
+/* Sabhi sections ka default padding */
+section {
+  padding: 50px 60px;
+}
+
+/* Sabhi section headings ki common style */
+section h2 {
+  font-size: 26px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #222;
+  border-left: 4px solid #6c3fc5; /* Purple left border - branding color */
+  padding-left: 12px;
+}
+
+
+/* ============================================================
+   2. NAVIGATION
+   Top sticky navbar - scroll karte waqt upar rehta hai
+   ============================================================ */
+
+nav {
+  background-color: #fff;
+  padding: 15px 60px;
+  display: flex;
+  justify-content: space-between; /* Logo left, links right */
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+  position: sticky; /* Scroll pe upar stick karta hai */
+  top: 0;
+  z-index: 100;     /* Sab ke upar rehega */
+}
+
+/* Logo / initials */
+nav .logo {
+  font-size: 20px;
+  font-weight: 700;
+  color: #6c3fc5; /* Purple - main brand color, isko change karke apna color set karo */
+}
+
+/* Nav links ka ul */
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 25px; /* Links ke beech gap */
+}
+
+/* Nav link style */
+nav ul li a {
+  text-decoration: none;
+  color: #333;
+  font-size: 15px;
+}
+
+/* Hover pe color change */
+nav ul li a:hover {
+  color: #6c3fc5;
+}
+
+/* JavaScript se active link ko yeh class milti hai */
+nav ul li a.active {
+  color: #6c3fc5;
+  font-weight: 600;
+}
+
+
+/* ============================================================
+   3. HERO SECTION
+   Pehli screen - naam left, photo right
+   ============================================================ */
+
+#hero {
+  background-color: #fff;
+  padding: 60px 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Left text, right photo */
+  gap: 40px;
+}
+
+/* LEFT SIDE - Text */
+.hero-text h1 {
+  font-size: 38px;  /* Bada heading size */
+  font-weight: 700;
+  color: #222;
+  line-height: 1.2; /* Line height thoda tight */
+}
+
+/* Role / tagline text */
+.hero-text p.tagline {
+  font-size: 16px;
+  color: #6c3fc5;
+  margin-top: 8px;
+  font-weight: 500;
+}
+
+/* "|" separator ke liye */
+.hero-text p.tagline span {
+  color: #999;
+  margin: 0 6px;
+}
+
+/* Buttons ka wrapper */
+.hero-buttons {
+  margin-top: 20px;
+  display: flex;
+  gap: 12px;
+}
+
+/* Common button style */
+.btn {
+  padding: 10px 22px;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  border: none;
+  font-family: 'Poppins', sans-serif;
+  text-decoration: none; /* Link ke liye underline hataana */
+  display: inline-block;
+}
+
+/* Filled purple button */
+.btn-primary {
+  background-color: #6c3fc5;
+  color: #fff;
+}
+
+/* Outline/border button */
+.btn-outline {
+  background-color: transparent;
+  border: 1px solid #6c3fc5;
+  color: #6c3fc5;
+}
+
+/* RIGHT SIDE - Photo */
+.hero-photo img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;      /* Round photo */
+  object-fit: cover;        /* Photo crop hogi circle mein */
+  border: 4px solid #6c3fc5; /* Purple border around photo */
+}
+
+
+/* ============================================================
+   4. ABOUT SECTION
+   Short introduction / career objective
+   ============================================================ */
+
+#about {
+  background-color: #fafafa; /* Thoda alag background sections ko differentiate karne ke liye */
+}
+
+#about p {
+  font-size: 15px;
+  color: #555;
+  max-width: 750px;  /* Text bahut wide na ho, readable rahe */
+  line-height: 1.8;  /* Lines ke beech achha space */
+}
+
+
+/* ============================================================
+   5. EDUCATION + SKILLS SECTION (2 Column Layout)
+   Left: Education, Right: Skills - side by side
+   ============================================================ */
+
+#edu-skills {
+  background-color: #fff;
+}
+
+/* 2 column grid layout */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Dono columns equal size */
+  gap: 40px;
+}
+
+/* ---- Education items ---- */
+
+/* Ek education entry */
+.edu-item {
+  border-left: 3px solid #6c3fc5; /* Purple left line */
+  padding-left: 14px;
+  margin-bottom: 18px;
+}
+
+.edu-item h4 {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.edu-item p {
+  font-size: 13px;
+  color: #777;
+  margin-top: 2px;
+}
+
+/* ---- Skill bars ---- */
+
+/* Ek skill entry wrapper */
+.skill-item {
+  margin-bottom: 14px;
+}
+
+/* Skill ka naam aur percentage - ek line mein dono */
+.skill-item .skill-name {
+  font-size: 14px;
+  margin-bottom: 5px;
+  display: flex;
+  justify-content: space-between; /* Naam left, % right */
+}
+
+/* Gray background bar */
+.skill-bar {
+  background-color: #eee;
+  height: 8px;
+  border-radius: 4px;
+}
+
+/* Purple filled bar - width inline style se set hoti hai HTML mein */
+.skill-fill {
+  height: 8px;
+  border-radius: 4px;
+  background-color: #6c3fc5;
+}
+
+
+/* ============================================================
+   6. TECH STACK SECTION
+   Technologies jo tum jaante ho - icon + naam grid
+   ============================================================ */
+
+#techstack {
+  background-color: #fafafa;
+  text-align: center; /* Sab center mein */
+}
+
+/* Center heading ke liye (border nahi chahiye isme) */
+.center-heading {
+  border: none !important;
+  padding: 0 !important;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+/* Subheading text */
+.center-sub {
+  color: #777;
+  font-size: 14px;
+  margin-bottom: 30px;
+}
+
+/* Tech cards ka flex container */
+.tech-grid {
+  display: flex;
+  flex-wrap: wrap;       /* Zyada cards hone pe next line mein jaenge */
+  justify-content: center;
+  gap: 18px;
+}
+
+/* Ek tech card */
+.tech-card {
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 18px 24px;
+  min-width: 110px;
+  text-align: center;
+}
+
+/* Tech icon */
+.tech-card i {
+  font-size: 28px;
+  color: #6c3fc5;
+  margin-bottom: 8px;
+  display: block; /* Icon apni line pe ho */
+}
+
+/* Tech name text */
+.tech-card p {
+  font-size: 13px;
+  font-weight: 500;
+  color: #444;
+}
+
+
+/* ============================================================
+   7. PROJECTS SECTION
+   Project cards with screenshot, description, tags, links
+   ============================================================ */
+
+#projects {
+  background-color: #fff;
+}
+
+/* Section ke neeche subtext */
+.section-sub {
+  color: #777;
+  font-size: 14px;
+  margin-bottom: 24px;
+}
+
+/* Responsive grid - automatically columns banta hai */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); /* Min 240px, max equal */
+  gap: 20px;
+}
+
+/* Ek project card */
+.project-card {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;        /* Border radius ke andar content clip ho */
+  background-color: #fafafa;
+}
+
+/* Project screenshot image */
+.project-card .project-img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover; /* Image crop hogi - card ka shape maintain hoga */
+  display: block;
+}
+
+/* Agar image nahi hai toh placeholder div */
+.project-img-placeholder {
+  width: 100%;
+  height: 150px;
+  background-color: #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  color: #999;
+}
+
+/* Card ka text area */
+.project-info {
+  padding: 14px;
+}
+
+/* Project name */
+.project-info h4 {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+/* Project description */
+.project-info p {
+  font-size: 13px;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+/* Tags wrapper (HTML, CSS, React etc.) */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+/* Ek tag chip */
+.tag {
+  background-color: #ede6fa; /* Light purple background */
+  color: #6c3fc5;
+  font-size: 11px;
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+
+/* "View Project" link */
+.project-info a {
+  font-size: 13px;
+  color: #6c3fc5;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.project-info a:hover {
+  text-decoration: underline;
+}
+
+
+/* ============================================================
+   8. FOOTER / CONTACT SECTION
+   Dark footer with contact info and social icons
+   ============================================================ */
+
+footer {
+  background-color: #222;  /* Dark background */
+  color: #ccc;
+  padding: 40px 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap; /* Mobile pe wrap hoga */
+  gap: 20px;
+}
+
+/* LEFT SIDE */
+.footer-name {
+  font-size: 17px;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 8px;
+}
+
+/* Contact lines (email, phone, address) */
+.footer-contact {
+  margin-top: 6px;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Links in footer */
+.footer-left a {
+  color: #aaa;
+  text-decoration: none;
+  font-size: 13px;
+}
+
+.footer-left a:hover {
+  color: #fff;
+}
+
+/* RIGHT SIDE - Social icons wrapper */
+.footer-right-wrapper {
+  text-align: center;
+}
+
+.follow-text {
+  color: #fff;
+  font-size: 15px;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+/* Social icons row */
+.footer-social {
+  display: flex;
+  gap: 16px;
+}
+
+/* Social icon link */
+.footer-social a {
+  color: #ccc;
+  font-size: 24px;
+  text-decoration: none;
+}
+
+.footer-social a:hover {
+  color: #fff;
+}
+
+/* Copyright line - full width bottom */
+.footer-copy {
+  width: 100%;
+  text-align: center;
+  font-size: 12px;
+  color: #777;
+  margin-top: 10px;
+  border-top: 1px solid #444;
+  padding-top: 12px;
+}
+
+
+/* ============================================================
+   9. RESPONSIVE - MOBILE VIEW
+   768px se chote screens pe layout change hoga
+   ============================================================ */
+
+@media (max-width: 768px) {
+
+  /* Padding kam karo mobile pe */
+  nav,
+  #hero,
+  section,
+  footer {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  /* Hero pe photo upar, naam neeche */
+  #hero {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+
+  /* Buttons center karo */
+  .hero-buttons {
+    justify-content: center;
+  }
+
+  /* 2 columns ko 1 column karo */
+  .two-col {
+    grid-template-columns: 1fr;
+  }
+
+  /* Footer ka layout column mein */
+  footer {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-social {
+    justify-content: center;
+  }
+
+  .footer-contact {
+    justify-content: center;
+  }
+}
