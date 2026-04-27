@@ -30,17 +30,6 @@ This project helps users manage daily tasks efficiently with smart sorting and a
 
 ---
 
-## 📸 Screenshots
-
-### 🏠 Main Dashboard
-
-
----
-
-### ➕ Add Task Form
-
----
-
 ## ⚙️ How to Run
 
 1. Clone the repository
