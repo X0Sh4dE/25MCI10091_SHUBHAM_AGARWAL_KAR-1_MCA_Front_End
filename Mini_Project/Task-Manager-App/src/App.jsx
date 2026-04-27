@@ -76,8 +76,8 @@ function App() {
     <div className="min-h-screen p-4 relative">
 
       {/* bubbles */}
-      {[...Array(10)].map((_, i) => (
-        <div key={i} className="bubble" style={{ left: `${i * 10}%` }}></div>
+      {[...Array(5)].map((_, i) => (
+        <div key={i} className="bubble" style={{ left: `${i * 20}%` }}></div>
       ))}
 
       <Navbar search={search} setSearch={setSearch} />

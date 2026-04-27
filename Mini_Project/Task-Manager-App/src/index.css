@@ -1,2 +1,30 @@
 @import "tailwindcss";
 
+body {
+  background: #0f172a;
+  color: white;
+  font-family: sans-serif;
+  overflow-x: hidden;
+}
+
+/* bubbles */
+.bubble {
+  position: fixed;
+  bottom: -100px;
+  width: 200px;
+  height: 200px;
+  background: rgba(59, 130, 246, 0.2);
+  border-radius: 100%;
+  animation: rise 7s infinite ease-in;
+}
+
+@keyframes rise {
+  0% { transform: translateY(0); opacity: 0.2; }
+  100% { transform: translateY(-100vh); opacity: 0; }
+}
+
+/* buttons */
+.btn { background: #1e293b; padding: 6px 12px; border-radius: 8px; }
+.btn-green { background: #22c55e; padding: 5px 10px; border-radius: 6px; }
+.btn-red { background: #ef4444; padding: 5px 10px; border-radius: 6px; }
+.btn-blue { background: #3b82f6; padding: 5px 10px; border-radius: 6px; }
