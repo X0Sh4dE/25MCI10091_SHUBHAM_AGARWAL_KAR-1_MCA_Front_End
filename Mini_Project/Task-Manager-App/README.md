@@ -1,16 +1,120 @@
-# React + Vite
+# 🧠 Smart Task Manager
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple and modern task management web application built using React and Tailwind CSS.
+This project helps users manage daily tasks efficiently with smart sorting and a clean dark UI.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🚀 Features
 
-## React Compiler
+* Add, edit, and delete tasks
+* Mark tasks as completed
+* Search tasks by title
+* Filter tasks (All / Completed / Pending)
+* Smart sorting based on:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+  * Priority (High, Medium, Low)
+  * Difficulty (Hard, Medium, Easy)
+  * Deadline proximity (nearest first)
+* Dark theme UI 🌙
+* Animated background (bubble effect)
+* Data stored using localStorage
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🛠️ Tech Stack
+
+* React (Vite)
+* Tailwind CSS
+* JavaScript (ES6)
+
+---
+
+## 📸 Screenshots
+
+### 🏠 Main Dashboard
+
+
+---
+
+### ➕ Add Task Form
+
+---
+
+## ⚙️ How to Run
+
+1. Clone the repository
+
+```bash
+git clone <your-repo-link>
+```
+
+2. Go to project folder
+
+```bash
+cd task-manager
+```
+
+3. Install dependencies
+
+```bash
+npm install
+```
+
+4. Run the project
+
+```bash
+npm run dev
+```
+
+5. Open in browser
+
+```
+http://localhost:5173
+```
+
+---
+
+## 📂 Project Structure
+
+```
+src/
+ ├── components/
+ │    ├── Navbar.jsx
+ │    ├── AddTaskForm.jsx
+ │    ├── TaskList.jsx
+ │    ├── TaskCard.jsx
+ │
+ ├── App.jsx
+ ├── main.jsx
+ └── index.css
+```
+
+---
+
+## 🎯 Learning Outcome
+
+* Understanding of React components and state management
+* Implementation of filtering and searching logic
+* Use of multi-level sorting algorithms
+* Working with localStorage for data persistence
+* Building responsive and modern UI using Tailwind CSS
+
+---
+
+## 📌 Future Improvements
+
+* Drag and drop functionality
+* User authentication
+* Backend integration
+* Notifications and reminders
+
+---
+
+## 👨‍💻 Author
+
+Shubham Agarwal
+25MCI10091
+MCA AI & ML
+
+---
